@@ -18,16 +18,25 @@ function swap(array, i, j) {
 }
 
 function quickSelect(array, left, right, position) {
-  if (left < right) {
-    let partitionIndex = partition(array, left, right);
-    if (partitionIndex === position) return array[partitionIndex];
-    else if (position > partitionIndex)
-      return quickSelect(array, left, partitionIndex - 1, position);
-    else return quickSelect(array, partitionIndex - 1, right, position);
+  let partitionIndex = partition(array, left, right);
+  if (partitionIndex === position) {
+    return array[partitionIndex];
+  } else if (position > partitionIndex) {
+    return quickSelect(array, partitionIndex + 1, right, position);
+  } else {
+    return quickSelect(array, left, partitionIndex - 1, position);
   }
 }
 
-let nums = [3, 2, 3, 1, 2, 4, 5, 5, 6],
-  k = 4;
+var findKthLargest = function (nums, k) {
+  nums = nums.sort((a, b) => b - a);
+  console.log(nums);
+  return nums[k - 1];
+};
 
-console.log(quickSelect(nums, 0, nums.length - 1, k));
+let nums = [3, 2, 3, 1, 2, 4, 5, 5, 6],
+  k = 1;
+console.log(findKthLargest(nums, k));
+
+(nums = [2, 1]), (k = 1);
+console.log(findKthLargest(nums, k));

@@ -17,18 +17,15 @@ function insertLevelOrder(arr, root, i) {
 }
 
 function dfs(node, array = []) {
-  console.log(node, array);
-  if (node === null) return array;
-  if (node.left) {
+  if (node !== null) {
     array.push(node.val);
     dfs(node.left, array);
-  } else {
-    array.push(node.val);
     dfs(node.right, array);
   }
+  return array;
 }
 
-let arr = [3, 9, 20, null, null, 15, 7];
+let arr = [3, 9, 20, 12, 13, 15, 7, 14, 18, 2, 0];
 root = insertLevelOrder(arr, null, 0);
 console.log(dfs(root));
 
