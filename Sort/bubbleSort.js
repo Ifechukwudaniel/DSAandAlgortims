@@ -36,3 +36,5 @@ function bubbleSortRecursively(array, length = array.length - 1) {
 }
 
 console.log(bubbleSortRecursively([9, 5, 3, 1, 8, 4, 6, 2, 7]));
+
+Algorithms;
