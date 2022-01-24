@@ -1,3 +1,5 @@
+//All Possible  direction in a 2d matricx
+
 let directions = [
   [-1, 0], //up
   [0, 1], //right
