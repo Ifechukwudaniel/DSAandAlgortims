@@ -19,6 +19,8 @@ function insertLevelOrder(arr, root, i) {
 let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
 root = insertLevelOrder(arr, null, 0);
 
+// Using Dfs count the items 
+// And compare the right and left for the greater depth
 var maxDepth = function (root, count = 0) {
   if (root === null) return count;
   count++;
