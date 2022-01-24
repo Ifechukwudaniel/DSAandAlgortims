@@ -1,3 +1,6 @@
+//Get The compliment  but store the current value in either  your  map or object 
+//if the compliment exist in the  the current value list return your two sum
+
 var twoSum = function (nums, target) {
   let complementList = {};
   for (let i = 0; i < nums.length; i++) {
