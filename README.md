@@ -20,4 +20,10 @@ To contribute there are a few steps
 2.  Attempt The question
 3.  If you can’t solve it check this repo for a solution like it
 
+# Note i also created a spread sheet  
+
+Here is the link 
+
+https://docs.google.com/spreadsheets/d/1h8McCfCWqujYMNAfzvL6k8JWCeZF6QiPepUrubRqjb8/edit?usp=sharing
+
 **Thats All for now**
