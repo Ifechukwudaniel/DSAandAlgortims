@@ -11,35 +11,42 @@ const listArray = (list, array = []) => {
 };
 
 var reorderList = function (head) {
-  let stack = [];
-  let count = 0;
-  let temp = head;
-  let newList = { val: 0, next: null };
-  let node = null;
-  while (temp != null) {
-    stack.push(temp);
-    temp = temp.next;
+  let slow = head;
+  let fast = head;
+
+  while (fast && fast.next) {
+    fast = fast.next.next;
+    if (fast) slow = slow.next;
   }
 
-  temp = newList;
+  let mid = slow.next;
+  let cur = mid;
+  slow.next = null;
 
-  while (stack.length) {
-    if (count % 2 == 0) {
-      node = stack.shift();
-      node.next = null;
-      temp.next = node;
-    } else {
-      node = stack.pop();
-      node.next = null;
-      temp.next = node;
-    }
-    count++;
-    temp = temp.next;
+  let halfReversedList = null;
+
+  while (cur) {
+    let next = cur.next;
+    cur.next = halfReversedList;
+    halfReversedList = cur;
+    cur = next;
   }
-  return newList.next;
+
+  cur = head;
+
+  while (cur && halfReversedList) {
+    let tempFirst = cur.next;
+    let tempSecond = halfReversedList.next;
+
+    cur.next = halfReversedList;
+    halfReversedList.next = tempFirst;
+    cur = tempFirst;
+    halfReversedList = tempSecond;
+  }
+  return head;
 };
 
 let head = linkedList([1, 2, 3, 4]);
-console.log(reorderList(head));
+console.log(listArray(reorderList(head)));
 head = linkedList([1, 2, 3, 4, 5]);
-console.log(reorderList(head));
+console.log(listArray(reorderList(head)));
