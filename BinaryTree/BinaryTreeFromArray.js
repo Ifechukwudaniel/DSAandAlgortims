@@ -5,7 +5,7 @@ function TreeNode(val) {
 }
 
 // Function to insert nodes in level order
-function insertLevelOrder(arr, root, i) {
+function insertLevelOrder(arr, root = null, i = 0) {
   // Base case for recursion
   if (i < arr.length && arr[i] !== null) {
     let temp = new TreeNode(arr[i]);
