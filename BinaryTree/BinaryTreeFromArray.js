@@ -16,10 +16,17 @@ function insertLevelOrder(arr, root, i) {
   return root;
 }
 
-let arr = [3, 9, 20, 12, 13, 15, 7, 14, 18, 2, 0];
-root = insertLevelOrder(arr, null, 0);
-console.log(root);
+function toArray(node, array = []) {
+  if (node !== null) {
+    array.push(node.val);
+    toArray(node.left, array);
+    toArray(node.right, array);
+  }
+  return array;
+}
 
-arr = [1, null, 2];
-root = insertLevelOrder(arr, null, 0);
-console.log(root);
+module.exports = {
+  TreeNode,
+  insertLevelOrder,
+  toArray,
+};
