@@ -1,7 +1,7 @@
 const { insertLevelOrder } = require("./BinaryTree/BinaryTreeFromArray");
 
 var dfs = (node, min, max) => {
-  if (!node) return node;
+  if (!node) return false;
   if (node.val <= min || node.val >= max) return false;
 
   if (node.left) {
