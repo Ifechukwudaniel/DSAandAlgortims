@@ -1,15 +1,27 @@
-const linkedList = (arr) =>
-  arr.reduceRight((next, val) => {
-    return { val, next };
-  }, null);
+class ListNode {
+  constructor(val, next) {
+    this.val = val;
+    this.next = next;
+  }
+}
 
-const listArray = (list, array = []) => {
+const linkedListFromArray = (arr) => {
+  return arr.reduceRight((next, val) => new ListNode(val, next), null);
+};
+
+const linkedListToArray = (list, array = []) => {
   if (list === undefined) return null;
   if (list === null) return array;
   array[array.length] = list.val;
-  return listArray(list.next, array);
+  return linkedListToArray(list.next, array);
 };
 
-console.log(listArray(linkedList([1, 2, 3, 4, 5]), 2));
-console.log(listArray(linkedList([1]), 2));
-console.log(listArray(linkedList([1, 2]), 1));
+module.exports = {
+  linkedListFromArray,
+  linkedListToArray,
+  ListNode,
+};
+
+// console.log(listArray(linkedList([1, 2, 3, 4, 5]), 2));
+// console.log(listArray(linkedList([1]), 2));
+// console.log(listArray(linkedList([1, 2]), 1));
