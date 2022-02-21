@@ -16,6 +16,6 @@ function GraphDfs(graph) {
   return ans;
 }
 
-let graph = [[1, 3], [0], [3, 8], [4, 5, 2], [3, 6], [3], [4, 7], [6], [2]];
+let graph = [[1, 3], [0], [3, 8], [4, 5, 2], [3, 6], [3], [4, 7, 10], [6], [2]];
 
 console.log(GraphDfs(graph));
