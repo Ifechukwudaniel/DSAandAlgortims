@@ -4,12 +4,21 @@
  */
 var majorityElement = function(nums) {
     let nLength = Math.floor(nums.length/2)
-    let count ={}
-    
-    
+    nums= nums.sort((a,b)=>a-b)
+    let occurance = 0
+    let prev = 0
     for(let i=0; i<nums.length; i++){
-       if(count[nums[i]]==undefined ) count[nums[i]]=1 
-       else  count[nums[i]]+=1
-       if(count[nums[i]] > nLength) return nums[i]
-     }
+      if(prev !== nums[i]) {
+          occurance = 1
+          prev=nums[i]
+      }
+      else occurance++
+      if(occurance > nLength) return nums[i]
+    }
 };
+
+
+// [3,2,3] 
+// [2,3,3]
+// [2,2,1,1,1,2,2]
+// [1,1,1,2,2,2,2]
