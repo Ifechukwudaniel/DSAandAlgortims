@@ -2,23 +2,29 @@
  * @param {string[]} strs
  * @return {string[][]}
  */
+const hash = (str) => {
+    const array = new Array(26)
+    array.fill(0, 0, array.length)
+    for (const letter of str) {
+        array[letter.charCodeAt(0) - 97] += 1
+    }
+    return array.join('#')
+}
+
 var groupAnagrams = function(strs) {
-    let hashMap = new Map()
-    
-    for(let i =0 ; i<strs.length; i++){
-        let hash = strs[i].split('').sort((a,b)=>a.localeCompare(b)).join("")
-        if(!hashMap.has(hash)){
-           hashMap.set(hash,[strs[i]])
-        }
-        else {
-            let prev= hashMap.get(hash)
-            prev.push(strs[i])
-            hashMap.set(hash,prev)
+    const lists = new Map()
+    for (const str of strs) {
+        const h = hash(str)
+        if (lists.has(h)) {
+            const list = lists.get(h)
+            list.push(str)
+        } else {
+            lists.set(h, [str])
         }
     }
-    
-    let values = Array(...hashMap.values())
-    values = values.sort((a,b)=>a.length - b.length)
-    return values
-    
+    const solution = []
+    for (const val of lists.values()) {
+        solution.push(val)
+    }
+    return solution
 };
