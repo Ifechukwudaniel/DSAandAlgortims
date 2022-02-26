@@ -23,8 +23,11 @@ var groupAnagrams = function(strs) {
         }
     }
     
-    let values = Array(...hashMap.values())
-    values = values.sort((a,b)=>a.length - b.length)
-    return values
+    let solution = []
+    
+    for (const value  of hashMap.values()){
+      solution.push(value)   
+    }
+    return solution
     
 };
