@@ -22,7 +22,7 @@ var checkInclusion = function(s1, s2) {
        console.log(s1Hash, currentHash)
        if(s1Hash===currentHash) return true
        p1++ 
-       p2++
+       p2= p1+ s1.length
     }
     return false
 };
