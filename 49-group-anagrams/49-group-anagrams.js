@@ -12,14 +12,14 @@
 }
 var groupAnagrams = function(strs) {
     let hashMap = new Map() 
-    for(let i =0 ; i<strs.length; i++){
-        let hash = createHash(strs[i])
+    for(const str of strs){
+        let hash = createHash(str)
         if(!hashMap.has(hash)){
-           hashMap.set(hash,[strs[i]])
+           hashMap.set(hash,[str])
         }
         else {
-            let prev= hashMap.get(hash)
-            prev.push(strs[i])
+            let prev = hashMap.get(hash)
+            prev.push(str)
         }
     }
     
