@@ -19,7 +19,6 @@ var checkInclusion = function(s1, s2) {
     
     while(p2<=s2.length){
        let currentHash =  hash(s2.substring(p1,p2))
-       console.log(s1Hash, currentHash)
        if(s1Hash===currentHash) return true
        p1++ 
        p2= p1+ s1.length
