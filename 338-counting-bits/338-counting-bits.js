@@ -2,16 +2,13 @@
  * @param {number} n
  * @return {number[]}
  */
-var getBits = function (n){
-    let bitsString =  (n >>> 0).toString(2)
-    return bitsString.split('1').length -1
-}
 var countBits = function(n) {
-    let result = []
+    const res = [0];
+    if (n === 0) return res;
     
-    for( let i =0 ; i<=n ; i++){
-        result.push(getBits(i))
+    for (let i = 1; i <= n; i++) {
+        res.push(res[i >> 1] + (i & 1));
     }
     
-    return result
+    return res;
 };
