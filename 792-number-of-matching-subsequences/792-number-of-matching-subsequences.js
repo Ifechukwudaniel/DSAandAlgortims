@@ -6,33 +6,41 @@
 
 
 var numMatchingSubseq = function(s, words) {
+  let hashMap =  new Map()
+   for (let i =0 ; i<s.length ; i++){
+      if(!hashMap.has(s[i])){
+          hashMap.set(s[i],[i])
+      } 
+      else hashMap.get(s[i]).push(i)
+   }
+
    let count = 0
-   let cache= {}
    
-   var isSubSequence= function(s, word){
-       if (word.length > s.length) return false;
-    
-       if (word.length === 0) return true;
-       
-       if(cache[word]) return cache[word]
-       
-        let i =0
-        let j =0
-        while(i<word.length&& j<s.length){
-           if(word[i]=== s[j]){
-               i++ 
-               j++
-           } 
-           else  j++
+   for (let i=0; i<words.length; i++){
+      let prev = -1
+      let matchFlag = true;
+      for(let char of words[i] ){
+        if(!hashMap.has(char)){
+            matchFlag = false
+            break
         }
-        cache[word] = i === word.length
-        return  cache[word]
-    }
-   
-   for(let i= 0; i<words.length; i++){
-       if(isSubSequence(s, words[i])){
-          count++
-       }
+        else {
+          let charPos = hashMap.get(char)
+          let r= charPos.length -1
+          let l = 0
+          while(l<r){
+             let mid = Math.floor((r + l) / 2);
+             if(charPos[mid] < prev) l = mid+1 
+             else  r  = mid
+           }
+          if(charPos[l] <  prev) {
+              matchFlag = false;
+              break
+          }
+          prev = charPos[l]+1
+         }
+     }
+     if(matchFlag) count++
    }
    return count
 };
