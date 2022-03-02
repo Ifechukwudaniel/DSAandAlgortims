@@ -10,6 +10,10 @@ var numMatchingSubseq = function(s, words) {
    let cache= {}
    
    var isSubSequence= function(s, word){
+       if (word.length > s.length) return false;
+    
+       if (word.length === 0) return true;
+       
        if(cache[word]) return cache[word]
        
         let i =0
