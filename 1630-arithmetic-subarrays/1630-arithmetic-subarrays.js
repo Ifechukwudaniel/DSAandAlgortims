@@ -7,13 +7,10 @@
 var isSequence= (array)=>{
      if(array.length <2) return  false
      if(array.length == 2) return  true
-     let diffrence = null
      array = array.sort((a,b)=>a-b)
-     for(let i =0; i<array.length ; i++){
-       if(diffrence=== null){
-           diffrence = array[i+1] -array[i]
-       } 
-       if(array[i+1] !== undefined && array[i+1] -array[i] !== diffrence) return false
+     let diffrence = array[1]-array[0]
+     for(let i =1; i<array.length ; i++){ 
+       if(array[i] -array[i-1] !== diffrence) return false
      }
      return true
     
