@@ -4,23 +4,17 @@
  * @param {number[]} r
  * @return {boolean[]}
  */
-var isSequence= (array)=>{
-     if(array.length <2) return  false
-     if(array.length == 2) return  true
-     array = array.sort((a,b)=>a-b)
-     let diffrence = array[1]-array[0]
-     for(let i =1; i<array.length ; i++){ 
-       if(array[i] -array[i-1] !== diffrence) return false
-     }
-     return true
-    
-}
 var checkArithmeticSubarrays = function(nums, l, r) {
-    let i = 0
-    let res =[]
-    while(i < l.length){
-         res.push(isSequence(nums.slice(l[i],r[i]+1)))
-        i++
-    }
-    return res
+    return l.map((firstRange, index) => {
+        let newArray = nums.slice(firstRange, r[index] + 1).sort((a, b) => a - b)
+        let req = newArray[1] - newArray[0]
+        let prevVal = newArray[1]
+        for(let i = 2; i < newArray.length; i++){
+            if(newArray[i] - prevVal !== req){
+                return false
+            }
+            prevVal = newArray[i]
+        }
+        return true
+    })
 };
