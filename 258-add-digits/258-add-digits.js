@@ -3,7 +3,6 @@
  * @return {number}
  */
 var addDigits = function(num) {
-    let tempNum = []
     if(num < 10) return num
     
     while(num > 9 ){
