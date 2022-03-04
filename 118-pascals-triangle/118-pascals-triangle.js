@@ -3,22 +3,21 @@
  * @return {number[][]}
  */
 var generate = function(numRows) {
-  if(numRows== 1) return [[1]]
-  if(numRows== 2) return [[1],[1,1]]
+    let returnLst = [[1]];
     
-  let cache= {}
-  let res =  [[1],[1,1]]
- 
-  for(let i=2 ; i<numRows; i++){
-      let row= []
-      for( let j = 0 ; j<=i; j++){
-          if(j==0 ||  i-j ==0){
-              row.push(1)
-              continue
-          }
-          row.push(res[i-1][j-1] +res[i-1][j])
-      }
-    res.push(row)
-  }
-  return  res
+    if (numRows === 1) return returnLst;
+    
+    let temp = [1];
+    let newlst = [1];
+    for (let i = 1; i < numRows; i++) {
+        for (let j = 1; j < temp.length; j++) {
+            newlst.push((temp[j-1] + temp[j]));
+        }
+        newlst.push(1);
+        temp = newlst;
+        returnLst.push(temp);
+        newlst = [1];
+    }
+    
+    return returnLst;
 };
