@@ -15,9 +15,8 @@ var generate = function(numRows) {
           if(j==0 ||  i-j ==0){
               row.push(1)
               continue
-          }else {
-              row.push(res[i-1][j-1] +res[i-1][j])
           }
+          row.push(res[i-1][j-1] +res[i-1][j])
       }
     res.push(row)
   }
