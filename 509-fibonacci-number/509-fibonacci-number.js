@@ -3,14 +3,10 @@
  * @return {number}
  */
 
-var fib = function(n) {
-    let cache = {}
-    var _fib = function(target){
-       if(target==0) return 0
-       if(target <= 2) return 1
-       if(cache[target]) return cache[target]
-       cache[target] = _fib(target-1) + _fib(target-2)
-       return  cache[target]
-    }
-    return _fib(n)
+var fib = function(n, memo={}) {
+    if(n in memo) return memo[n]
+    if(n==0) return 0
+    if(n <= 2) return 1
+    memo[n] = fib(n-1,memo) + fib(n-2,memo)
+    return  memo[n]
 };
