@@ -3,10 +3,14 @@
  * @return {number}
  */
 
-var fib = function(n, memo={}) {
-    if(n in memo) return memo[n]
-    if(n==0) return 0
-    if(n <= 2) return 1
-    memo[n] = fib(n-1,memo) + fib(n-2,memo)
-    return  memo[n]
+var fib = function (n) {
+  let array = new Array(n + 1).fill(0);
+  array[1] = 1;
+
+  for (let i = 0; i < n; i++) {
+    array[i + 1] += array[i];
+    array[i + 2] += array[i];
+  }
+
+  return array[n];
 };
