@@ -9,33 +9,34 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
-var oddEvenList = function(head) {
-    if(!head) return head
-    if(head.next === null) return head
-    
-    let dummy = new ListNode(-1,head)
-    let slow = head
-    let fast = head
-    let prev = dummy
-    let even = []
-    
-    while(fast!== null && fast.next !== null){
-        fast = fast.next.next
-        even.push(slow.next.val)
-        slow.next = fast
-        slow = slow.next
-        prev = prev.next
+const oddEvenList = (head) => {
+  if (head == null || head.next == null) {
+    return head;
+  }
+
+  const oddDummy = new ListNode(-1);
+  const evenDummy = new ListNode(-1);
+
+  let oddTail = oddDummy;
+  let evenTail = evenDummy;
+
+  let index = 0;
+  let curr = head;
+  while (curr != null) {
+    if (index % 2 == 0) {
+      evenTail.next = curr;
+      evenTail = curr;
+    } else {
+      oddTail.next = curr;
+      oddTail = curr;
     }
-    
-    while(prev.next !== null){
-        prev = prev.next
-    }
-    
-    let i = 0
-    while(i<even.length){
-        prev.next = new ListNode(even[i])
-        prev= prev.next
-        i++
-    }
-    return  dummy.next
-};
+
+    curr = curr.next;
+    index++;
+  }
+
+  evenTail.next = oddDummy.next;
+  oddTail.next = null;
+
+  return evenDummy.next;
+}
