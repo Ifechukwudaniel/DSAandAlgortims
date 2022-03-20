@@ -3,5 +3,7 @@
  * @return {boolean}
  */
 var isPowerOfFour = function(n) {
-    return Math.log10(n)/Math.log10(4) % 1 == 0
+    if(n<1) return false
+    if(n==1) return true
+    return isPowerOfFour(n/4)
 };
