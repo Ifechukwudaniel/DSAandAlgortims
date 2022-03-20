@@ -13,7 +13,6 @@ var wordPattern = function(pattern, s) {
       if(patternMatch[sArray[i]] === undefined)  patternMatch[sArray[i]] = pattern[i]
       if(wordMatch[pattern[i]] === undefined)  wordMatch[pattern[i]] = sArray[i]
       if(patternMatch[sArray[i]] !== pattern[i] || wordMatch[pattern[i]] !== sArray[i] ){
-        console.log(patternMatch, wordMatch)
         return false  
       }
     }
