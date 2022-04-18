@@ -27,9 +27,7 @@ var kWeakestRows = function(mat, k) {
        stat[1] = searchIndex(mat[i])
        rowSoldiers.push(stat)
    }
-   console.log(rowSoldiers)
    rowSoldiers.sort((a,b)=>a[1] -b[1])
-   console.log(rowSoldiers)
    let ans= []
    for(let i=0 ; i<k; i++){
        ans.push(rowSoldiers[i][0])
