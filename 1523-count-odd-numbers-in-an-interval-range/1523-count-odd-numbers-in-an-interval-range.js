@@ -4,9 +4,8 @@
  * @return {number}
  */
 var countOdds = function(low, high) {
-    let count =0
-    for(let i = low; i<=high; i++){
-        if(i%2 !== 0) count++
-    }
-   return count 
+    let total = high-low
+    let count = Math.floor((total) / 2)
+    if(high%2 !==0 || low%2!==0) count++
+    return count 
 };
