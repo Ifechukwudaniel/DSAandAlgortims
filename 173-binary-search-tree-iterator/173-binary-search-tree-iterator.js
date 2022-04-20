@@ -13,7 +13,7 @@ var BSTIterator = function(root) {
     this._root= root
     this._current = 0
     this._nodeTotal = this._nodeCount(root)
-    this._cacheArray =null
+    this._cacheArray = []
 };
 
 BSTIterator.prototype._nodeCount = function(node,count=0){
@@ -24,19 +24,15 @@ BSTIterator.prototype._nodeCount = function(node,count=0){
 /**
  * @return {number}
  */
-BSTIterator.prototype._inOrder = function(node,array){
+BSTIterator.prototype._inOrder = function(node){
    if(!node) return null
-   this._inOrder(node.left,array)
-   array.push(node.val)
-   this._inOrder(node.right,array)
+   this._inOrder(node.left)
+   this._cacheArray.push(node.val)
+   this._inOrder(node.right)
 }
 
 BSTIterator.prototype.next = function() {
-  if(this._cacheArray== null){
-    let array =[]
-    this._inOrder(this._root,array)  
-     this._cacheArray = array
-  }
+  if(this._cacheArray.length == 0) this._inOrder(this._root)  
   ++this._current
   return this._cacheArray[this._current -1]
 };
