@@ -9,40 +9,25 @@
 /**
  * @param {TreeNode} root
  */
-var BSTIterator = function(root) {
-    this._root= root
-    this._current = 0
-    this._nodeTotal = this._nodeCount(root)
-    this._cacheArray = []
-};
+function BSTIterator(root) {
+  var stack = [];
+  return {hasNext, next};
 
-BSTIterator.prototype._nodeCount = function(node,count=0){
-    if(!node) return 0
-    return 1 + this._nodeCount(node.left) +  this._nodeCount(node.right)
+  function hasNext() {
+    return root || stack.length;
+  }
+
+  function next() {
+    while (root) {
+      stack.push(root);
+      root = root.left;
+    }
+    root = stack.pop();
+    var result = root.val;
+    root = root.right;
+    return result;
+  }
 }
-
-/**
- * @return {number}
- */
-BSTIterator.prototype._inOrder = function(node){
-   if(!node) return null
-   this._inOrder(node.left)
-   this._cacheArray.push(node.val)
-   this._inOrder(node.right)
-}
-
-BSTIterator.prototype.next = function() {
-  if(this._cacheArray.length == 0) this._inOrder(this._root)  
-  ++this._current
-  return this._cacheArray[this._current -1]
-};
-
-/**
- * @return {boolean}
- */
-BSTIterator.prototype.hasNext = function() {
-   return this._current < this._nodeTotal
-};
 
 /** 
  * Your BSTIterator object will be instantiated and called as such:
