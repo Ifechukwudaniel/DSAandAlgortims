@@ -15,7 +15,6 @@ var subtractProductAndSum = function(n) {
          product*= num
          sum+= num
      }
-    console.log(product, sum)
     return product -sum
     
 };
