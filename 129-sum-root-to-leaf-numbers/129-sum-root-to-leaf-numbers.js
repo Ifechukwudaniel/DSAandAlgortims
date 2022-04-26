@@ -18,7 +18,6 @@ var sumNumbers = function(root) {
     for (let num of numberArray){
         sum= sum + (+num)
     }
-    console.log(numberArray)
     return  sum
 };
 
