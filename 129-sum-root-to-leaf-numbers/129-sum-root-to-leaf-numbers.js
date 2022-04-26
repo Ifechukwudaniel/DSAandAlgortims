@@ -23,7 +23,6 @@ var sumNumbers = function(root) {
 
 var inOrder =  function(node, array,sofar=""){
     if (!node) return null 
-    
     sofar+=node.val
     if(!node.left && !node.right) array.push(sofar)
     inOrder(node.left ,array,sofar) 
