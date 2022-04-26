@@ -4,15 +4,12 @@
  */
 var arraySign = function(nums) {
     
-    let  product = 1n
+    let  sign = 1
     
     for(let n of nums){
         if(n == 0) return 0
-         product*=BigInt(n)
+        if(n<0)  sign =-sign
     }
     
-    if(product >0) return 1
-    if(product <0) return -1
-    
-    return product 
+    return sign
 };
