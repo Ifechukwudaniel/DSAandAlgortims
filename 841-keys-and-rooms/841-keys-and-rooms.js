@@ -14,6 +14,7 @@ var canVisitAllRooms = function(rooms) {
             if(!hashSeen.has(vertex)) {
               hashSeen.add(vertex)
               queue.push(vertex) 
+              if(hashSeen.size === rooms.length) return true
             }  
         }
     }
