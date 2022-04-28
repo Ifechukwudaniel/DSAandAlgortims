@@ -17,7 +17,6 @@ var canVisitAllRooms = function(rooms) {
             }  
         }
     }
-    // console.log(hashSeen)
     return hashSeen.size === rooms.length
     
 };
