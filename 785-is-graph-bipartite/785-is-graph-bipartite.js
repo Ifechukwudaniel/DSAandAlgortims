@@ -15,7 +15,7 @@ var isBipartite = function(graph) {
         while(queue.length){
             let node =  queue.pop()
             for(let vartex of graph[node]){
-                 console.log(vartex, node)
+                 // console.log(vartex, node)
                 if(!seen.has(vartex) && colors[vartex] == -1){
                     seen.add(vartex)
                     queue.push(vartex)
