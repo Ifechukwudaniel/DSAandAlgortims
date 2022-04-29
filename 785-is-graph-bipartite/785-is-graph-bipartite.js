@@ -5,11 +5,11 @@
 var isBipartite = function(graph) {
     if(!graph.length) return false
     let colors = new Array(graph.length).fill(-1)
-    let queue = []
     let seen = new Set()
     for(let i =0; i <graph.length; i++){
         if(seen.has(i)) continue 
         seen.add(i)
+        let queue = []
         queue.push(i)
         colors[i]= 1
         while(queue.length){
