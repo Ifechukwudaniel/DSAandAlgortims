@@ -3,26 +3,41 @@
  * @param {number} numRows
  * @return {string}
  */
-var convert = function(s, numRows) {
-    if(numRows===1 || s.length==1 || s.length<numRows) return s 
-    let newString = ""
-    let increment = 2*numRows-1
-    for(let i =0; i< numRows;i++ ){
-        newString+=s[i]
-        let j = i
-        while(j<=s.length){
-            if(i>0 && i<numRows-1 && s[j+(increment-2*i)-1]!==undefined){
-               newString+=s[j+(increment-2*i)-1] 
-            }
-            
-            j = j+increment-1
-            
-            if( s[j] === undefined) continue 
-               newString+=s[j]
-            }
-        }
-    return newString
-};
 
-//.PAYPAL
-// ISHIRING
+function convert(s,numRows){
+     if(numRows === 1 ) return s
+     let result = [];
+     let n = s.length
+     let cycleLen = 2* numRows-2
+     for(let i =0 ; i<numRows; i++){
+         for (let j = 0; j + i < n; j += cycleLen) {
+             // console.log(s[j+i], j+i)
+            result.push(s[j+i])
+             let middle =  j + cycleLen -i
+            if(i!=0 && i!= numRows-1 && j + cycleLen -i < n) {
+               result.push(s[middle])
+            }
+         
+        }
+     }
+    return result.join("")
+}
+// class Solution {
+//     public String convert(String s, int numRows) {
+
+//         if (numRows == 1) return s;
+
+//         StringBuilder ret = new StringBuilder();
+//         int n = s.length();
+//         int cycleLen = 2 * numRows - 2;
+
+//         for (int i = 0; i < numRows; i++) {
+//             for (int j = 0; j + i < n; j += cycleLen) {
+//                 ret.append(s.charAt(j + i));
+//                 if (i != 0 && i != numRows - 1 && j + cycleLen - i < n)
+//                     ret.append(s.charAt(j + cycleLen - i));
+//             }
+//         }
+//         return ret.toString();
+//     }
+// }
