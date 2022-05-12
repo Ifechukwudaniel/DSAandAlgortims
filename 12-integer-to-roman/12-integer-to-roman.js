@@ -55,7 +55,6 @@ var intToRoman = function(num) {
        }
        
        if(num>= 10 && num < 40){
-           console.log(num)
            num -= 10
            result.push(symbols['10'])
            continue
@@ -74,7 +73,6 @@ var intToRoman = function(num) {
        }
        else {
          let [symbol , value] = remainder(num) 
-         console.log(value)
          num -= value
          result.push(symbol)
          continue
