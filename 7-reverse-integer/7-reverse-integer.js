@@ -15,9 +15,11 @@ var reverse = function(num) {
         //if out of bound return 0
         if(rev>(max/10) || rev < (min/10)) return 0 
         
-        
+        // get the last value  and and to rev
         let pop = num%10
         rev = rev*10 + pop
+        
+        // if its greateh then zero floor else  ceil
         num = num >0 ?  Math.floor(num/10) : Math.ceil(num/10)
     }
     return rev
