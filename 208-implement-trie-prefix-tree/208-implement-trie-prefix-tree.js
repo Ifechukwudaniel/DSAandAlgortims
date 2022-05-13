@@ -1,31 +1,38 @@
-class TrieNode {
-  constructor() {
-    this.key = {};
-    this.end = false;
-  }
+
+var TrieNode = function() {
+    this.key= {}
+    this.end = false
 }
 
-class Trie {
-  constructor() {
-    this.root = new TrieNode();
-  }
-  insert(word, node = this.root) {
-    if (word.length === 0) {
-      node.end = true;
-      return;
+var Trie = function() {
+    this.root = new TrieNode()
+};
+
+/** 
+ * @param {string} word
+ * @return {void}
+ */
+Trie.prototype.insert = function(word, node = this.root) {
+    if(word.length == 0){
+        node.end = true
+        return
     }
-
-    if (!node.key[word[0]]) {
-      node.key[word[0]] = new TrieNode();
-      this.insert(word.substring(1), node.key[word[0]]);
-      return;
+    
+    if(!node.key[word[0]]){
+        node.key[word[0]] =  new TrieNode()
+        let curentNode = node.key[word[0]]
+        this.insert(word.substring(1) ,curentNode)
+        return;
     }
+    this.insert(word.substring(1),node.key[word[0]])
+    return
+};
 
-    this.insert(word.substring(1), node.key[word[0]]);
-    return;
-  }
-
-  search(word, node = this.root) {
+/** 
+ * @param {string} word
+ * @return {boolean}
+ */
+Trie.prototype.search = function(word, node= this.root) {
     if (word.length == 0 && node.end == true) {
       return true;
     }
@@ -39,14 +46,27 @@ class Trie {
     }
     let foundNode = node.key[word[0]];
     return this.search(word.substring(1), foundNode);
-  }
+};
 
-  startsWith(word, node = this.root) {
-    if (word.length == 0) return true;
+/** 
+ * @param {string} prefix
+ * @return {boolean}
+ */
+Trie.prototype.startsWith = function(word, node= this.root) {
+    if(word.length == 0 ){
+        return  true  
+    } 
+    if(!node.key[word[0]]) {
+        return false
+    }
+    let currentNode = node.key[word[0]]
+    return this.startsWith(word.substring(1),currentNode)   
+};
 
-    if (!node.key[word[0]]) return false;
-
-    let foundNode = node.key[word[0]];
-    return this.startsWith(word.substring(1), foundNode);
-  }
-}
+/** 
+ * Your Trie object will be instantiated and called as such:
+ * var obj = new Trie()
+ * obj.insert(word)
+ * var param_2 = obj.search(word)
+ * var param_3 = obj.startsWith(prefix)
+ */
