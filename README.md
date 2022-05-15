@@ -8,11 +8,15 @@ You welcomed to join me on this journey
 
 To contribute there are a few steps
 
-1.  Pick a question like for this example https://leetcode.com/problems/two-sum/
-2.  Create and file with the slug of the question two-sum.js
-3.  Solve You Question and commit you solution and an explanation
-4.  Please write comments on how you solved it
-5.  That is all you just contributed
+0.Topics are in the .0Topics Folders , there i explain most of this algorithm  as detailed as i can 
+1.  Install The leed hub extention   https://chrome.google.com/webstore/detail/leethub/aciombdipochlnkbpcbgdpjffcfdbggi?hl=en
+2.  fork this repo
+3.  Connect it to leethub 
+4.  Pick a question like for this example https://leetcode.com/problems/two-sum/
+5.  Create and file with the slug of the question two-sum.js
+6.  Solve You Question and commit you solution and an explanation
+7.  Please write comments on how you solved it
+8.  That is all you just contributed
 
 # How Do I Use this repo as a study material
 
