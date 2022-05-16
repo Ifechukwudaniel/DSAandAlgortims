@@ -10,29 +10,30 @@
  * @param {ListNode} list2
  * @return {ListNode}
  */
-var mergeTwoLists = function(list1, list2) {
-    let  list = new ListNode(0)
-    let temp = list
-    let l1= list1 , l2=list2
-    while(l1!== null && l2!==null){
-        if(l1.val <= l2.val){
-            temp.next = new ListNode(l1.val)
-            l1 = l1.next
-            temp= temp.next
-        } 
-        else{
-            temp.next = new ListNode(l2.val)
-            l2 = l2.next
-            temp= temp.next
+var mergeTwoLists = function(l1, l2) {
+    let dummy= new ListNode(-1)
+    let temp = dummy
+    while(l1!== null || l2!= null){
+        if(l1 && l2){
+            
+            if(l2.val <= l1.val){
+                temp.next = new ListNode(l2.val) 
+                temp= temp.next
+                l2 = l2.next
+            }
+            else{
+                temp.next = new ListNode(l1.val) 
+                temp=temp.next
+                l1 = l1.next
+            }
         }
+        else break
     }
-    
-    if(l1 === null){
-        temp.next= l2
+    if(l1&& !l2){
+         temp.next = l1
     }
-    
-    if(l2 === null){
-        temp.next= l1
+    if(!l1 && l2){
+       temp.next = l2
     }
-    return list.next
+    return dummy.next
 };
