@@ -18,7 +18,7 @@ var rightSideView = function(root) {
         let n = queue.length
         for(let i =0; i<n; i++){
             let node = queue.shift()
-            console.log(node.val,i,n)
+            // console.log(node.val,i,n)
             if(i == n- 1) result.push(node.val)
             if(node.left) queue.push(node.left)
             if(node.right) queue.push(node.right)
