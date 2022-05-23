@@ -16,16 +16,18 @@ var removeNthFromEnd = function(head, n) {
    let dummy = new ListNode(-1,head)
    let left = dummy
    let right = dummy.next
+   let count = 0
    
-   while(n>0 && right){
+   while(n > 0 && right){
         right = right.next
-        n-=1
+        n--
    }
-   // console.log(left, right)
+   // console.log(right,count)
    while(right){
        left = left.next
        right = right.next
    }
-    left.next = left.next.next
+    
+   left.next = left.next.next
    return dummy.next
 };
