@@ -4,13 +4,11 @@
  */
 var reverseBits = function(n) {
     let answer = 0
-    let count =32
-    
+    let count = 32
     while(count--){
-        answer *= 2
-        answer +=  (n & 1)  
-        n = n >> 1
+        answer*=2
+        answer+=(n&1)
+        n=n>>1
     }
-    
     return answer
 };
