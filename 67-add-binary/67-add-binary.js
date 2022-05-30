@@ -22,7 +22,7 @@ var addBinary = function(a, b) {
       
       a=a.slice(0,-1)
       b= b.slice(0,-1)
-      console.log(result)
+      // console.log(result)
   }
     
   return result 
