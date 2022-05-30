@@ -1,8 +1,3 @@
-/**
- * @param {string} a
- * @param {string} b
- * @return {string}
- */
 var addBinary = function(a, b) {
   let sum =0
   let carry = 0
