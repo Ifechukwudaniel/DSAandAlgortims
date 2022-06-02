@@ -17,7 +17,7 @@ var rob = function(nums) {
        }
       table[i]= Math.max(tablea,tableb)   
    }
-    console.log(table)
+    // console.log(table)
    return  Math.max(table[nums.length-2],table[nums.length-1])
 };
 
