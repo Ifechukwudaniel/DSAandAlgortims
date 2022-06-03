@@ -12,8 +12,7 @@
  * @return {number}
  */
 var guessNumber = function(n) {
-    let left =1
-    let right = n
+    let left =1,right = n
     
     while(left<=right){
         let mid = left+Math.floor((right - left)/2)
