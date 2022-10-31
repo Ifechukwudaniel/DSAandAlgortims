@@ -7,6 +7,6 @@ impl Solution {
                 }
             }
         }   
-        panic!("Not found");
+       return vec![]
     }
 }
