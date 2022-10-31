@@ -7,7 +7,7 @@ impl Solution {
             let currentTarget =  target -n;
             match map.get(&currentTarget) {
                 Some(j) => {
-                    return vec![ i as i32,*j];
+                    return vec![ *j,i as i32];
                 }
                 None => map.insert(*n, i as i32),
             };
