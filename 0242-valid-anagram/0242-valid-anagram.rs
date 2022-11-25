@@ -9,6 +9,9 @@ impl Solution {
     }
 
     pub fn is_anagram(s: String, t: String) -> bool {
+        if s.len() != t.len() {
+            return false
+        }
         Self::hash(s) == Self::hash(t)
     }
 }
