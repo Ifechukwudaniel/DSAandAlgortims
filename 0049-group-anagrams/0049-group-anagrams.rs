@@ -11,7 +11,6 @@ impl Solution {
             sorted_string.sort();
             for i in sorted_string {
                 key.push(i);
-                key.push('#');
             }
 
             if map.get(&key) == None {
