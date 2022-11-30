@@ -8,11 +8,10 @@ var isValid = function(s) {
     for (let c of s){
         if(pairs[c]){
            stack.push(pairs[c])  
+            continue
         }
-        else {
-            let item = stack.pop()
-            if(item !== c) return false
-        }
+        let item = stack.pop()
+        if(item !== c) return false
     }
      return stack.length == 0
 };
